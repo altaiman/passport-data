@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Kelly+Slab&amp;subset=cyrillic" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Сервис по заполнению паспортных данных.</title>
+</head>
+<body>
+
+  <section class="passport-data">
+
+    <h2 class="title">Заполните ваши данные, гражданин!</h2>
+
+    <form action="" class="form" id="form-passport">
+      <fieldset class="form__fieldset" data-step="0">
+        <legend class="form__caption">Шаг 1. Заполните ваши личные данные.</legend>
+
+        <label class="field">
+          <span class="caption">ФИО:</span>
+          <div class="field__input">
+            <input type="text" id="form-passport-name" placeholder="Иванов Иван Иванович">
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="caption">Дата рождения:</span>
+          <div class="field__input">
+            <input type="date" value="1990-01-01" id="form-passport-bithday">
+          </div>
+        </label>
+
+        <div class="form__set" id="form-passport-sex">
+          <span class="caption">Пол:</span>
+          <label class="radio">
+            <span>М</span>
+            <input type="radio" name="sex" value="sex-man" checked>
+          </label>
+
+          <label class="radio">
+            <span>Ж</span>
+            <input type="radio" name="sex" value="sex-woman">
+          </label>
+        </div>
+
+        <div class="form__actions">
+          <button class="button" data-step-next>Следующий шаг</button>
+        </div>
+
+      </fieldset>
+
+      <fieldset class="form__fieldset" data-step="1">
+        <legend class="form__caption">Шаг 2. Ваш адрес по прописке.</legend>
+
+        <label class="field">
+          <span class="caption">Город:</span>
+          <div class="field__input">
+            <input type="text">
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="caption">Улица:</span>
+          <div class="field__input">
+            <input type="text">
+          </div>
+        </label>
+
+        <label class="field">
+          <span class="caption">Дом/Квартира:</span>
+          <div class="field__input">
+            <input type="text">
+          </div>
+        </label>
+
+        <div class="form__actions">
+          <button class="button" data-step-next>Следующий шаг</button>
+        </div>
+
+      </fieldset>
+
+      <fieldset class="form__fieldset" data-step="2">
+        <legend class="form__caption">Шаг 3. Заполните данные Ваших детей.</legend>
+
+        <p>Колличество детей: <strong id="form-passport-children-count">0</strong></p>
+
+        <div class="form__data" id="form-passport-children-data"></div>
+
+        <div class="form__actions">
+          <button class="button" id="form-passport-children-add">Добавить ребенка</button>
+          <button class="button hidden" id="form-passport-children-save">Сохранить</button>
+        </div>
+
+        <div class="form__message">
+          <p><strong>Не забудьте сохранить данные!</strong></p>
+          <label class="checkbox">
+            <input type="checkbox" id="form-passport-agree">
+            <span>Я подтверждаю, что введенные мной данные верны</span>
+          </label>
+        </div>
+
+        <div class="form__actions form__actions_right">
+          <button class="button button_invert" disabled id="form-passport-finish">Завершить</button>
+        </div>
+
+      </fieldset>
+
+      <div class="form__message">
+        <p><a href="https://pics.me.me/haha-u-are-funny-go-to-gulag-19296050.png" target="_blank" class="form__help">Ой, мне нужна помощь</a></p>
+      </div>
+    </form>
+
+  </section>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
