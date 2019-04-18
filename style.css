@@ -80,6 +80,7 @@ body * {
 
 .field {
   position: relative;
+  z-index: 1;
   display: block;
   margin: 0 0 16px;
   width: 100%;
@@ -104,6 +105,35 @@ body * {
 
 .field__message p {
   margin: 0;
+}
+
+.field__drop {
+  display: none;
+  position: absolute;
+  z-index: 9;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background: #ffffff;
+  box-shadow: 0 0 1px 1px rgba(0,0,0,.3);
+  cursor: pointer;
+  max-height: 120px;
+  overflow-y: scroll;
+}
+
+.field__drop-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.field__drop-list li {
+  display: block;
+  padding: 8px;
+}
+
+.field__drop-list li:hover {
+  background: rgba(0,0,0,.05);
 }
 
 .caption {
@@ -140,6 +170,10 @@ body * {
 
 .field__input input:focus::placeholder {
   opacity: 0;
+}
+
+.field__input input:focus + .field__drop {
+  display: block;
 }
 
 .field__textarea {

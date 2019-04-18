@@ -282,4 +282,13 @@
     }
   })
 
+  document.querySelectorAll('.field input').forEach((field, i) => {
+    field.addEventListener('focus', (e) => {
+      document.querySelectorAll('.field').forEach((field, k) => {
+        field.style.zIndex = 1
+      })
+      e.target.closest('.field').style.zIndex = 3
+    })
+  })
+
 })();
