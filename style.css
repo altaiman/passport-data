@@ -87,6 +87,14 @@ body * {
   max-width: 400px;
 }
 
+.field_focus {
+  z-index: 3;
+}
+
+.field_focus .field__drop {
+  display: block;
+}
+
 .field_error .field__input {
   border-color: red;
 }
@@ -170,10 +178,6 @@ body * {
 
 .field__input input:focus::placeholder {
   opacity: 0;
-}
-
-.field__input input:focus + .field__drop {
-  display: block;
 }
 
 .field__textarea {

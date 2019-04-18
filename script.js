@@ -279,15 +279,41 @@
       childrenCountElement.textContent = --childrenCount
 
       if (!document.querySelector('[data-children]')) document.getElementById('form-passport-children-save').classList.add('hidden')
+    } else if (!e.target.closest('.field_focus')) {
+      const fieldFocus = document.querySelector('.field_focus')
+
+      if (fieldFocus) fieldFocus.classList.remove('field_focus')
     }
   })
 
   document.querySelectorAll('.field input').forEach((field, i) => {
-    field.addEventListener('focus', (e) => {
-      document.querySelectorAll('.field').forEach((field, k) => {
-        field.style.zIndex = 1
-      })
-      e.target.closest('.field').style.zIndex = 3
+    field.addEventListener('keyup', (e) => {
+
+      const field = e.target.closest('.field'),
+            fieldFocus = document.querySelector('.field_focus'),
+            fieldClasses = [...field.classList]
+
+
+      if (fieldClasses.indexOf('field_focus') >= 0) return
+
+      if (fieldFocus) fieldFocus.classList.remove('field_focus')
+
+      if (e.target.value.trim().length > 1) {
+        field.classList.add('field_focus')
+      } else {
+        field.classList.remove('field_focus')
+      }
+    })
+  })
+
+  document.querySelectorAll('.field__drop').forEach((drop, i) => {
+    const field = drop.closest('.field'),
+          input = field.querySelector('input')
+
+
+    drop.addEventListener('click', (e) => {
+      input.value = e.target.textContent.trim()
+      field.classList.remove('field_focus')
     })
   })
 
